@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加新书</title>
+</head>
+<body>
+    <form action="/bookstore/add" method="post">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="title" placeholder="新书名" required>
+        </div>
+        <div>
+            <input type="text" name="pub_house" placeholder="新版社名" required>
+        </div>
+        <div>
+            <input type="text" name="price" placeholder="定价" required>
+        </div>
+        <div>
+            <input type="text" name="market_price" placeholder="零售价" required>
+        </div>
+        <div>
+            <input type="submit" value="添加新书">
+        </div>
+    </form>
+</body>
+</html>

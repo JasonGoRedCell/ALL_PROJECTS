@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HC云笔记</title>
+    <style>
+        #top,#bottom{
+           width:1000px;
+           height:50px;
+           font-size:16px;
+           background:lightblue;
+           text-align:right;
+           margin:0px auto;
+           line-height:50px;
+        }
+        h2{
+            margin:0px;
+            text-align:center;
+        }
+        #main{
+            width:1000px;
+            height:500px;
+            text-align:center;
+            background:white;
+            margin:0px auto;
+        }
+
+        #bottom{
+             text-align:center;
+             font-size:12px;
+        }
+
+        #photo{
+             height:464px;
+             background:lightgray;
+             line-height:464px;
+             font-size:32px;
+             color:red;
+        }
+    </style>
+</head>
+<body>
+    <!--top-->
+    <div  id = "top">
+        {% if request.session and request.session.userinfo %}
+        <span>欢迎您, {{request.session.userinfo.username }}
+        </span>
+        <a href="/user/logout">注销</a>
+        {% else %}
+        <a href="/user/login">登录</a>
+        <a href="/user/register">注册</a>
+        {% endif %}
+    </div>
+    <!--main-->
+    <div id="main">
+        <h2>HC云笔记欢迎您</h2>
+
+        {% block mod %}
+        <div id="photo">
+            <span>这里有轮播图</span>
+        </div>
+        {% endblock %}
+    </div>
+
+    <!--bottom-->
+    <div id="bottom">
+        <span>解释权:虹细胞科技股份有限公司</span> <span>© 版权所有</span>
+    </div>
+
+
+</body>
+</html>

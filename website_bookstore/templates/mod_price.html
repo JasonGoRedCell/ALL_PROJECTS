@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改价格</title>
+</head>
+<body>
+    <form action="/bookstore/mod/{{ abook.id }}" method="post">
+        {% csrf_token %}
+        <div>书名: {{ abook.title }}</div>
+        <div>版社名: {{ abook.pub_house }}</div>
+        <div>定价: {{ abook.price }}</div>
+        <div>
+            <input type="text" name="market_price" value="{{ abook.market_price }}"placeholder="零售价" required>
+        </div>
+        <div>
+            <input type="submit" value="修改价格">
+        </div>
+    </form>
+</body>
+</html>

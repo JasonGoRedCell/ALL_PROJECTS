@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script>
+        $(function(){
+            $("#show").click(function(){
+                $.ajax({
+                    url:'/note/show',
+                    type:'get',
+                    dataType:'json',
+                    success:function(data){
+                        $(data).each(function(index,value){
+                            $("#show_res").html("标题:"+value.title+"<br>"
+                            +"内容:"+value.content)
+                        });
+                    }
+                });
+            });
+        })
+
+
+    </script>
+</head>
+<body>
+    {% extends 'homepage.html' %}
+
+    {% block mod %}
+    <button id="show">
+        查看
+    </button>
+    <button>
+        <a href="/note/add">添加</a>
+    </button>
+    <div id="show_res"></div>
+
+    {% endblock %}
+
+
+
+</body>
+</html>
